@@ -36,6 +36,7 @@ public class UserAgentUDTF extends GenericUDTF {
         return ObjectInspectorFactory.getStandardStructObjectInspector(fieldNames,fieldOIs);
     }
 
+    @Override
     public void process(Object[] objects) throws HiveException {
         final String userAgentString = userAgentDtlOI.getPrimitiveJavaObject(objects[0]).toString();
         UserAgent userAgent = UserAgent.parseUserAgentString(userAgentString);
@@ -46,7 +47,8 @@ public class UserAgentUDTF extends GenericUDTF {
         forward(fwdObj);
     }
 
+    @Override
     public void close() throws HiveException {
-
+        forward(fwdObj);
     }
 }
