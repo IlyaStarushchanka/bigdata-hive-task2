@@ -49,6 +49,5 @@ public class UserAgentUDTF extends GenericUDTF {
 
     @Override
     public void close() throws HiveException {
-        forward(fwdObj);
     }
 }
